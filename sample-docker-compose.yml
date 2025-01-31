@@ -1,0 +1,48 @@
+networks:
+  traefik_default:
+    external: true
+
+# shared between prod and dev
+x-labels: &labels
+  restart: unless-stopped
+  image: book-labels
+  build:
+    context: .
+  secrets:
+    - config
+
+secrets:
+  config:
+    file: configs/config.php
+      
+services:
+  labels-dev:
+    <<: [*labels]
+    profiles: [dev]
+    ports:
+      - "8080:80"
+    
+  labels-prod:
+    <<: [*labels]
+    profiles: [prod]
+    labels:
+      traefik.enable: true
+
+      # HTTP router
+      traefik.http.routers.labels_http.entrypoints: http
+      traefik.http.routers.labels_http.middlewares: https-redirect
+      traefik.http.routers.labels_http.rule: Host(`example.com`)
+      traefik.http.routers.labels_http.service: labels
+
+      # HTTPS router
+      traefik.http.routers.labels_https.entrypoints: https
+      traefik.http.routers.labels_https.middlewares: labels
+      traefik.http.routers.labels_https.rule: Host(`example.com`)
+      traefik.http.routers.labels_https.service: labels
+      traefik.http.routers.labels_https.tls: true
+      traefik.http.routers.labels_https.tls.certresolver: resolver
+
+      # Service definition
+      traefik.http.services.labels.loadbalancer.server.port: 80
+    networks:
+      - traefik_default
