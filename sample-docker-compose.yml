@@ -36,7 +36,6 @@ services:
 
       # HTTPS router
       traefik.http.routers.labels_https.entrypoints: https
-      traefik.http.routers.labels_https.middlewares: labels
       traefik.http.routers.labels_https.rule: Host(`example.com`)
       traefik.http.routers.labels_https.service: labels
       traefik.http.routers.labels_https.tls: true
