@@ -171,7 +171,7 @@
           <a href="#" class="button" id="sendlabels">Create Labels</a>
         </div>
       </form>
-      <p>Documentation can be found on GitHub</p>
+      <p>Documentation can be found on <a href="https://github.com/Acadia-University-Library/spine-labels">GitHub</a></p>
     </div>
   </body>
 </html>
