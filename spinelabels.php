@@ -6,7 +6,7 @@ include('configs/config.php');
 //
 
 $print_codes = false;
-if (isset($_POST['print_codes']) && $_POST['print_codes'])
+if (isset($_POST['print-codes']) && $_POST['print-codes'] === "true")
   $print_codes = true;
 
 $DONT_PRINT = explode(',', $SKIP_CODES);
@@ -24,7 +24,7 @@ if (isset($_POST['fontsize']))
 $fontsize = (int)$fontsize * 2;
 
 $bold = "false";
-if (isset($_POST['bold']) && $_POST['bold'])
+if (isset($_POST['bold']) && $_POST['bold'] === "true")
   $bold = "true";
 
 $rows = $ROWS;
@@ -107,9 +107,10 @@ foreach ($barCodes as $key => $bc) {
   $labelArr = array_merge($labelArr, $callArr);
   
   // If there is a location add it to the first line of the label
+
   if ($print_codes && $location != '' && !in_array($location, $DONT_PRINT))
     array_unshift($labelArr, $location);
-    
+
   // add the volume and number to the label
   $labelArr[] = $vol;
   $labelArr[] = $no;
