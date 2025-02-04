@@ -434,7 +434,7 @@ for($tablerow = 1; $tablerow <= $rows; $tablerow++) {
 </w:tbl>
       <w:p wsp:rsidR="001B5590" wsp:rsidRPr="00BE2E45" wsp:rsidRDefault="001B5590" wsp:rsidP="00BE2E45">
         <w:pPr>
-          <w:spacing w:line="<?=$fontSize?>0" w:line-rule="exact"/>
+          <w:spacing w:line="<?=$fontsize?>0" w:line-rule="exact"/>
           <w:rPr>
             <w:rFonts w:ascii="<?=$font?>" w:h-ansi="<?=$font?>" w:cs="<?=$font?>"/>
             <wx:font wx:val="<?=$font?>"/>
