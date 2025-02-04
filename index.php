@@ -113,7 +113,7 @@
                 $bold_checked = '';
             }
             ?>
-            <input class="clear" type="checkbox" id="bold" name="bold" value="false" <?= $bold_checked ?>>
+            <input class="clear" type="checkbox" id="bold" name="bold" value="true" <?= $bold_checked ?>>
           </div>
         </fieldset>
         <!-- input boxes for rows & columns-->
