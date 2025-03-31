@@ -10,6 +10,7 @@ $LIBRARIES = array(
   "sandbox" => array(
     "name" => "Alma Sandbox",
     "api_key" => "l7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "api_url" => "https://api-ca.hosted.exlibrisgroup.com/almaws/v1/items",
   )
 );
 
